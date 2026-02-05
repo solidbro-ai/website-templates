@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cryptocurrency Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: #f5f7fa;
+      --primary-color: #a8c0ff;
+      --secondary-color: #ffe6f0;
+      --text-color: #333;
+      --accent-color: #ff99c7;
+      --border-radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: var(--primary-color);
+      padding: 2rem 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    header h1:hover {
+      transform: scale(1.05);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    main {
+      padding: 2rem 1rem;
+    }
+
+    section {
+      margin: 3rem 0;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      background: var(--secondary-color);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero button {
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: #ff77a5;
+    }
+
+    .social-proof {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      background: #fff;
+      border: 2px solid var(--primary-color);
+      border-radius: var(--border-radius);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      flex: 1 1 200px;
+      transition: transform 0.3s ease;
+    }
+
+    .badge:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0 1rem;
+      border: 1px solid #ccc;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      width: 100%;
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      padding: 0.75rem;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: #ff77a5;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--primary-color);
+      color: #fff;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      .social-proof {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CryptoVault</h1>
+    <nav>
+      <a href="#social-proof">Social Proof</a>
+      <a href="#contact">Contact</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Secure Your Future with CryptoVault</h2>
+      <p>Experience the future of finance with our cutting-edge cryptocurrency solutions.</p>
+      <button>Get Started</button>
+    </section>
+
+    <section id="social-proof" class="social-proof">
+      <div class="badge">
+        <p><strong>98%</strong> User Satisfaction</p>
+      </div>
+      <div class="badge">
+        <p><strong>5M+</strong> Active Users</p>
+      </div>
+      <div class="badge">
+        <p><strong>100%</strong> Security Assurance</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-form">
+      <h2>Contact Us</h2>
+      <form onsubmit="return validateForm()">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <section id="gallery" class="gallery">
+      <img src="https://via.placeholder.com/400x300?text=Wallet+1" alt="Wallet" />
+      <img src="https://via.placeholder.com/400x300?text=Blockchain+2" alt="Blockchain" />
+      <img src="https://via.placeholder.com/400x300?text=Transactions+3" alt="Transactions" />
+      <img src="https://via.placeholder.com/400x300?text=Security+4" alt="Security" />
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 CryptoVault. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      
+      if (!name || !email || !message) {
+        alert('Please fill in all fields.');
+        return false;
+      }
+      alert('Thank you for your message!');
+      return false;
+    }
+  </script>
+</body>
+</html>
