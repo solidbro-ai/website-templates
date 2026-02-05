@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Gym</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff7f50;
+            --secondary: #98fb98;
+            --background: #f0f8ff;
+            --text: #333;
+            --dark: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        header h1:hover {
+            transform: scale(1.05);
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        section {
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .newsletter {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .newsletter form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .newsletter input {
+            padding: 0.5rem;
+            width: 80%;
+            max-width: 300px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .newsletter button {
+            padding: 0.5rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background: var(--dark);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark);
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FitLife Gym</h1>
+        <nav>
+            <a href="#newsletter">Newsletter</a>
+            <a href="#team">Team</a>
+            <a href="#gallery">Gallery</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="newsletter" class="newsletter">
+            <h2>Join Our Newsletter</h2>
+            <form onsubmit="event.preventDefault(); alert('Subscribed!');">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+        <section id="team" class="team-grid">
+            <div class="team-member">
+                <h3>John Doe</h3>
+                <p>Strength Trainer</p>
+                <p>10+ years experience in weight training and nutrition.</p>
+            </div>
+            <div class="team-member">
+                <h3>Jane Smith</h3>
+                <p>Yoga Instructor</p>
+                <p>Helping clients achieve balance and flexibility through yoga.</p>
+            </div>
+            <div class="team-member">
+                <h3>Mike Johnson</h3>
+                <p>Cardio Expert</p>
+                <p>Specializing in high-intensity interval training (HIIT).</p>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery">
+            <img src="https://source.unsplash.com/400x300/?gym" alt="Gym 1">
+            <img src="https://source.unsplash.com/400x300/?exercise" alt="Gym 2">
+            <img src="https://source.unsplash.com/400x300/?workout" alt="Gym 3">
+            <img src="https://source.unsplash.com/400x300/?training" alt="Gym 4">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 FitLife Gym. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple scroll reveal effect
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>
