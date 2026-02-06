@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeReal Estate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: var(--light);
+        }
+
+        header {
+            background: var(--primary);
+            color: var(--light);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: var(--light);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .video-bg {
+            position: relative;
+            overflow: hidden;
+            height: 50vh;
+            background: #000;
+        }
+
+        .video-bg video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .video-bg .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .video-bg h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--light);
+            z-index: 2;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonials {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--secondary);
+            color: var(--light);
+        }
+
+        .testimonial {
+            min-width: 300px;
+            padding: 1rem;
+            border-radius: 8px;
+            background: #fff;
+            color: var(--dark);
+        }
+
+        .newsletter {
+            text-align: center;
+            background: var(--primary);
+            color: var(--light);
+            padding: 2rem 1rem;
+        }
+
+        .newsletter input {
+            padding: 0.5rem;
+            width: 200px;
+            margin-right: 0.5rem;
+        }
+
+        .newsletter button {
+            padding: 0.5rem 1rem;
+            background: var(--secondary);
+            color: var(--light);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter button:hover {
+            background: #c0392b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        @media (max-width: 768px) {
+            .video-bg h2 {
+                font-size: 1.5rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PrimeReal Estate</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Properties</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="video-bg">
+        <video autoplay muted loop>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay">
+            <h2>Discover Your Dream Home</h2>
+        </div>
+    </section>
+
+    <main>
+        <section class="testimonials">
+            <div class="testimonial">"Amazing service and top-notch properties!" - John D.</div>
+            <div class="testimonial">"Professional team made the process effortless." - Jane S.</div>
+            <div class="testimonial">"Highly recommend for any real estate needs!" - Mike T.</div>
+        </section>
+
+        <section class="gallery">
+            <img src="https://via.placeholder.com/400x300" alt="Property 1">
+            <img src="https://via.placeholder.com/400x300" alt="Property 2">
+            <img src="https://via.placeholder.com/400x300" alt="Property 3">
+            <img src="https://via.placeholder.com/400x300" alt="Property 4">
+            <img src="https://via.placeholder.com/400x300" alt="Property 5">
+            <img src="https://via.placeholder.com/400x300" alt="Property 6">
+        </section>
+
+        <section class="newsletter">
+            <h2>Subscribe to Our Newsletter</h2>
+            <form>
+                <input type="email" placeholder="Your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 PrimeReal Estate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple testimonials slider
+        const testimonials = document.querySelector('.testimonials');
+        let scrollAmount = 0;
+        const scrollInterval = setInterval(() => {
+            scrollAmount += 1;
+            testimonials.scrollLeft = scrollAmount;
+            if (scrollAmount >= testimonials.scrollWidth - testimonials.clientWidth) {
+                scrollAmount = 0;
+            }
+        }, 20);
+    </script>
+</body>
+</html>
