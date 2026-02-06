@@ -1,10 +1,10 @@
 {
   "theme": "AI startup",
-  "colors": "bold primary colors",
+  "colors": "clean white with blue accents",
   "features": [
-    "blog preview",
-    "newsletter signup",
-    "video background"
+    "pricing table",
+    "feature grid",
+    "FAQ accordion"
   ],
   "date": "2026-02-05"
 }

@@ -4,13 +4,13 @@
 
 ## Preview
 
-A AI startup website template with bold primary colors.
+A AI startup website template with clean white with blue accents.
 
 ## Features
 
-- Blog Preview
-- Newsletter Signup
-- Video Background
+- Pricing Table
+- Feature Grid
+- Faq Accordion
 
 ## Usage
 
