@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ForestBooks - A Curated Collection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #2e6c3c;
+      --secondary: #4b8b5c;
+      --accent: #88c9a1;
+      --background: #f4f8f2;
+      --text: #333;
+      --hover: #a8d8b9;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      transition: var(--transition);
+    }
+
+    header h1:hover {
+      color: var(--accent);
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      padding: 2rem 1rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    .social-proof {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem 0;
+    }
+
+    .social-proof img {
+      width: 100px;
+      height: 50px;
+      object-fit: contain;
+      transition: var(--transition);
+    }
+
+    .social-proof img:hover {
+      transform: scale(1.1);
+      filter: brightness(1.2);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: var(--secondary);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin: 2rem 0;
+      padding-left: 3rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 10px;
+      width: 20px;
+      height: 20px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+
+    .testimonial-carousel {
+      max-width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .slide p {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .slide strong {
+      display: block;
+      margin-top: 1rem;
+      color: var(--primary);
+    }
+
+    .carousel-buttons {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .carousel-buttons button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .carousel-buttons button:hover {
+      background: var(--accent);
+    }
+
+    footer {
+      background: var(--secondary);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .social-proof {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .timeline-item::before {
+        left: -5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ForestBooks</h1>
+    <nav>
+      <a href="#social">Social Proof</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#testimonials">Testimonials</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="social" class="social-proof">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_alert.svg/120px-OOjs_UI_icon_alert.svg.png" alt="Book Association" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_alert.svg/120px-OOjs_UI_icon_alert.svg.png" alt="Literary Guild" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_alert.svg/120px-OOjs_UI_icon_alert.svg.png" alt="Reading Society" />
+    </section>
+
+    <section id="gallery" class="gallery">
+      <img src="https://source.unsplash.com/400x300/?book,shelf" alt="Bookshelf 1" />
+      <img src="https://source.unsplash.com/400x300/?book,library" alt="Library 1" />
+      <img src="https://source.unsplash.com/400x300/?book,reading" alt="Reading 1" />
+      <img src="https://source.unsplash.com/400x300/?book,coffee" alt="Coffee & Book" />
+    </section>
+
+    <section id="timeline" class="timeline">
+      <div class="timeline-item">
+        <strong>1998</strong>
+        <p>Founded with a mission to bring rare books to readers</p>
+      </div>
+      <div class="timeline-item">
+        <strong>2005</strong>
+        <p>Launched online catalog with 5,000+ titles</p>
+      </div>
+      <div class="timeline-item">
+        <strong>2012</strong>
+        <p>Expanded to international shipping</p>
+      </div>
+      <div class="timeline-item">
+        <strong>2020</strong>
+        <p>Introduced digital book subscriptions</p>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonial-carousel">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <p>"The most curated collection of books I've ever seen. A paradise for book lovers!"</p>
+          <strong>- Jane Doe, Reader</strong>
+        </div>
+        <div class="slide">
+          <p>"Exceptional service and a great selection of rare editions. Will definitely return."</p>
+          <strong>- John Smith, Collector</strong>
+        </div>
+        <div class="slide">
+          <p>"The perfect blend of traditional and digital books. Highly recommended for any reader."</p>
+          <strong>- Emily Johnson, Student</strong>
+        </div>
+      </div>
+      <div class="carousel-buttons">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">→</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 ForestBooks. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
+
+    function showSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentSlide = index;
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    // Auto-rotate every 5 seconds
+    setInterval(nextSlide, 5000);
+  </script>
+</body>
+</html>
