@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cozy Bean Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary-green: #4caf50;
+  --secondary-brown: #5d4037;
+  --background-beige: #f5f5dc;
+  --text-dark: #3e2723;
+  --accent-cream: #fff8f0;
+  --transition-speed: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--background-beige);
+  scroll-behavior: smooth;
+}
+
+header {
+  background: var(--secondary-brown);
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition-speed);
+}
+
+nav a:hover {
+  color: var(--primary-green);
+}
+
+section {
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--secondary-brown);
+}
+
+/* Pricing Table */
+.pricing-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.pricing-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform var(--transition-speed);
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+}
+
+.pricing-card h3 {
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+}
+
+.pricing-card p {
+  margin-bottom: 1rem;
+}
+
+/* Testimonials Carousel */
+.testimonials {
+  position: relative;
+}
+
+.testimonials .carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  scroll-behavior: smooth;
+}
+
+.testimonials .carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial {
+  background: var(--accent-cream);
+  border-radius: 10px;
+  padding: 2rem;
+  min-width: 300px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.testimonial p {
+  margin-bottom: 1rem;
+}
+
+.testimonial cite {
+  font-style: italic;
+  color: var(--secondary-brown);
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+.contact-form input, .contact-form textarea {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  background: var(--primary-green);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background var(--transition-speed);
+}
+
+.contact-form button:hover {
+  background: #388e3c;
+}
+
+/* FAQ Accordion */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordion-item {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.accordion-header {
+  padding: 1rem;
+  background: var(--secondary-brown);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.accordion-content {
+  padding: 1rem;
+  display: none;
+  background: var(--accent-cream);
+}
+
+.accordion-content.show {
+  display: block;
+}
+
+/* Footer */
+footer {
+  background: var(--secondary-brown);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .pricing-table {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Cozy Bean Coffee</h1>
+  <nav>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+</header>
+
+<section id="pricing">
+  <h2>Our Coffee Menu</h2>
+  <div class="pricing-table">
+    <div class="pricing-card">
+      <h3>Espresso</h3>
+      <p>$2.50</p>
+      <p>Strong and bold, made with 100% Arabica beans.</p>
+    </div>
+    <div class="pricing-card">
+      <h3>Cappuccino</h3>
+      <p>$3.25</p>
+      <p>Rich espresso with steamed milk and foam.</p>
+    </div>
+    <div class="pricing-card">
+      <h3>Latte</h3>
+      <p>$3.75</p>
+      <p>Smooth espresso with velvety milk.</p>
+    </div>
+    <div class="pricing-card">
+      <h3>Cold Brew</h3>
+      <p>$4.00</p>
+      <p>Slow-steeped coffee with a smooth finish.</p>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <h2>What Our Customers Say</h2>
+  <div class="testimonials">
+    <div class="carousel">
+      <div class="testimonial">
+        <p>"The best coffee in town! The atmosphere is so cozy."</p>
+        <cite>- Sarah M.</cite>
+      </div>
+      <div class="testimonial">
+        <p>"I love their seasonal specials. The pumpkin spice latte is amazing."</p>
+        <cite>- James T.</cite>
+      </div>
+      <div class="testimonial">
+        <p>"Friendly staff and great selection. Definitely a new favorite."</p>
+        <cite>- Emily R.</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<section id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="accordion">
+    <div class="accordion-item">
+      <div class="accordion-header">What are your operating hours?</div>
+      <div class="accordion-content">We're open 7 days a week from 7 AM to 8 PM.</div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">Do you offer vegetarian options?</div>
+      <div class="accordion-content">Yes, we have a variety of vegetarian and vegan menu items.</div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">Can I order online?</div>
+      <div class="accordion-content">Currently, we offer takeout and in-store dining. We're working on online ordering!</div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">Do you have wireless internet?</div>
+      <div class="accordion-content">Yes, our café offers free WiFi for all customers.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2023 Cozy Bean Coffee. All rights reserved.</p>
+</footer>
+
+<script>
+// Testimonials Carousel
+const carousel = document.querySelector('.carousel');
+let scrollAmount = 0;
+const scrollInterval = setInterval(() => {
+  scrollAmount += 300;
+  carousel.scrollLeft = scrollAmount;
+  if (scrollAmount >= carousel.scrollWidth - carousel.clientWidth) {
+    scrollAmount = 0;
+  }
+}, 5000);
+
+// FAQ Accordion
+document.querySelectorAll('.accordion-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const content = header.nextElementSibling;
+    content.classList.toggle('show');
+  });
+});
+</script>
+</body>
+</html>
