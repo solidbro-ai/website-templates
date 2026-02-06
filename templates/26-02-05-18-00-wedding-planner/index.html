@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff9a9e;
+            --secondary: #fad0c4;
+            --dark: #333;
+            --light: #fff;
+            --accent: #ff6b6b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--light);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        header h1:hover {
+            transform: scale(1.05);
+        }
+
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.5;
+            transition: opacity 1s ease;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin: 4rem 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .blog-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-post {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-post h3 {
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border 0.3s ease;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        .contact-form button {
+            background: var(--accent);
+            color: var(--light);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            margin-top: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #e63946;
+        }
+
+        .social-proof {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+
+        .social-proof img {
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-proof img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--light);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .blog-preview {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video class="video-bg" autoplay muted loop>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <header>
+        <h1>Golden Hour Weddings</h1>
+    </header>
+    <div class="container">
+        <section class="blog-preview">
+            <div class="blog-post">
+                <h3>Top 5 Wedding Trends 2024</h3>
+                <p>Discover the latest styles and ideas for your special day...</p>
+            </div>
+            <div class="blog-post">
+                <h3>How to Choose the Perfect Venue</h3>
+                <p>Our expert tips to find the ideal location for your celebration...</p>
+            </div>
+            <div class="blog-post">
+                <h3>Wedding Planning Checklist</h3>
+                <p>Stay organized with our comprehensive month-by-month guide...</p>
+            </div>
+        </section>
+        <section>
+            <div class="contact-form">
+                <h2>Contact Us</h2>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+        <section class="social-proof">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_alert.svg/120px-OOjs_UI_icon_alert.svg.png" alt="Trustpilot">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_alert.svg/120px-OOjs_UI_icon_alert.svg.png" alt="Yelp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_alert.svg/120px-OOjs_UI_icon_alert.svg.png" alt="Google Reviews">
+        </section>
+    </div>
+    <footer>
+        &copy; 2024 Golden Hour Weddings. All rights reserved.
+    </footer>
+    <script>
+        // Basic form handling
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
