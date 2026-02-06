@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Planner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #ff6b6b;
+      --secondary: #f9a825;
+      --bg: #fff8f0;
+      --text: #333;
+      --gradient: linear-gradient(135deg, #ff6b6b, #f9a825);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: var(--gradient);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    header h1:hover {
+      transform: scale(1.05);
+    }
+
+    nav {
+      margin: 1rem 0;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    main {
+      padding: 2rem 1rem;
+    }
+
+    section {
+      margin: 2rem 0;
+    }
+
+    .video-bg {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-bg video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+    }
+
+    .video-bg::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .video-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding-top: 10%;
+    }
+
+    .video-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .video-content p {
+      color: white;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .blog-preview {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .blog-preview article {
+      flex: 1 1 300px;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .blog-preview article:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-preview img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .blog-preview .content {
+      padding: 1rem;
+    }
+
+    .blog-preview h3 {
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+
+    .contact-form button {
+      background: var(--gradient);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: #ff8e53;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .video-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .blog-preview {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Wedding Elegance</h1>
+    <nav>
+      <a href="#gallery">Gallery</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="video-bg">
+    <div class="video-content">
+      <h2>Creating Unforgettable Moments</h2>
+      <p>Let us help you plan the wedding of your dreams with our expert services and personalized attention to detail.</p>
+    </div>
+    <video autoplay muted loop>
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <main>
+    <section id="gallery">
+      <h2 style="text-align:center; margin-bottom: 2rem;">Our Work</h2>
+      <div class="gallery">
+        <img src="https://via.placeholder.com/400x300?text=Wedding+1" alt="Wedding 1">
+        <img src="https://via.placeholder.com/400x300?text=Wedding+2" alt="Wedding 2">
+        <img src="https://via.placeholder.com/400x300?text=Wedding+3" alt="Wedding 3">
+        <img src="https://via.placeholder.com/400x300?text=Wedding+4" alt="Wedding 4">
+        <img src="https://via.placeholder.com/400x300?text=Wedding+5" alt="Wedding 5">
+        <img src="https://via.placeholder.com/400x300?text=Wedding+6" alt="Wedding 6">
+      </div>
+    </section>
+
+    <section id="blog">
+      <h2 style="text-align:center; margin-bottom: 2rem;">Latest Blog Posts</h2>
+      <div class="blog-preview">
+        <article>
+          <img src="https://via.placeholder.com/400x200?text=Blog+1" alt="Blog 1">
+          <div class="content">
+            <h3>Top 10 Wedding Trends 2024</h3>
+            <p>Discover the latest trends in wedding planning that are taking the industry by storm this year.</p>
+          </div>
+        </article>
+        <article>
+          <img src="https://via.placeholder.com/400x200?text=Blog+2" alt="Blog 2">
+          <div class="content">
+            <h3>How to Choose the Perfect Venue</h3>
+            <p>Our expert tips for selecting the ideal venue that matches your wedding vision and budget.</p>
+          </div>
+        </article>
+        <article>
+          <img src="https://via.placeholder.com/400x200?text=Blog+3" alt="Blog 3">
+          <div class="content">
+            <h3>Wedding Budget Planning Guide</h3>
+            <p>Learn how to create a realistic budget and allocate funds effectively for your big day.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 style="text-align:center; margin-bottom: 2rem;">Get in Touch</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Wedding Elegance. All rights reserved.</p>
+  </footer>
+</body>
+</html>
