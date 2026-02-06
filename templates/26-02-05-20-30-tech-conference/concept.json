@@ -1,0 +1,11 @@
+{
+  "theme": "tech conference",
+  "colors": "dark mode with neon accents",
+  "features": [
+    "team section",
+    "hero section with CTA",
+    "stats counter",
+    "blog preview"
+  ],
+  "date": "2026-02-05"
+}
