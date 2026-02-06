@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitGym</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #007BFF;
+      --secondary-blue: #0056b3;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+      --dark-gray: #333333;
+      --transition-speed: 0.3s;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--white);
+      color: var(--dark-gray);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: var(--white);
+      padding: 2rem 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--dark-gray);
+      font-weight: 500;
+      transition: color var(--transition-speed);
+    }
+
+    nav ul li a:hover {
+      color: var(--primary-blue);
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-overlay h2 {
+      font-size: 2.5rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-overlay p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-overlay button {
+      background: var(--primary-blue);
+      color: var(--white);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background var(--transition-speed);
+    }
+
+    .hero-overlay button:hover {
+      background: var(--secondary-blue);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      padding: 4rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      background: var(--primary-blue);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2px;
+      height: 100%;
+      background: var(--primary-blue);
+      z-index: 0;
+    }
+
+    .timeline-item:last-child::after {
+      display: none;
+    }
+
+    .timeline-icon {
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+    }
+
+    .timeline-content {
+      flex: 1;
+    }
+
+    .timeline-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-blue);
+    }
+
+    .timeline-content p {
+      font-size: 0.95rem;
+      color: var(--dark-gray);
+    }
+
+    .testimonials {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .testimonial {
+      background: var(--gray);
+      padding: 2rem;
+      border-radius: 10px;
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-author {
+      font-weight: bold;
+      color: var(--primary-blue);
+    }
+
+    .carousel-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .carousel-buttons button {
+      background: var(--primary-blue);
+      color: var(--white);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background var(--transition-speed);
+    }
+
+    .carousel-buttons button:hover {
+      background: var(--secondary-blue);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--white);
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .hero-overlay h2 {
+        font-size: 2rem;
+      }
+
+      .hero-overlay p {
+        font-size: 1rem;
+      }
+
+      .timeline {
+        padding-left: 0;
+      }
+
+      .timeline-item::before {
+        left: 0;
+      }
+
+      .timeline-item::after {
+        left: 5px;
+      }
+
+      .testimonial {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>FitGym</h1>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <video autoplay muted loop>
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay">
+      <h2>Transform Your Body</h2>
+      <p>Join our community of fitness enthusiasts and reach your goals</p>
+      <button>Get Started</button>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <h2 style="text-align:center; margin-bottom: 2rem; color: var(--primary-blue);">Our Timeline</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-icon">📅</div>
+        <div class="timeline-content">
+          <h3>2020</h3>
+          <p>Founded our gym with a mission to help people achieve their fitness goals through personalized training and state-of-the-art equipment.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-icon">🏋️</div>
+        <div class="timeline-content">
+          <h3>2021</h3>
+          <p>Expanded our facilities to include new cardio zones, weight training areas, and group fitness classes.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-icon">👥</div>
+        <div class="timeline-content">
+          <h3>2022</h3>
+          <p>Launched our online coaching program, allowing members to train from anywhere with our expert guidance.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-icon">🏆</div>
+        <div class="timeline-content">
+          <h3>2023</h3>
+          <p>Won "Best Gym in the City" award by local fitness magazine and expanded to two new locations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2 style="text-align:center; margin-bottom: 2rem; color: var(--primary-blue);">What Our Members Say</h2>
+    <div class="testimonials" id="testimonialsCarousel">
+      <div class="testimonial">
+        <p>"FitGym has changed my life! The trainers are amazing and the equipment is top-notch. I've never felt more motivated."</p>
+        <div class="testimonial-author">- Sarah Johnson</div>
+      </div>
+      <div class="testimonial">
+        <p>"I've been a member for a year and my health has improved so much. The community here is supportive and the programs are tailored to my needs."</p>
+        <div class="testimonial-author">- Michael Smith</div>
+      </div>
+      <div class="testimonial">
+        <p>"From a beginner to a confident gym-goer, FitGym has helped me achieve my goals. The staff is always there to help."</p>
+        <div class="testimonial-author">- Emily Davis</div>
+      </div>
+    </div>
+    <div class="carousel-buttons">
+      <button onclick="prevTestimonial()">❮</button>
+      <button onclick="nextTestimonial()">❯</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 FitGym. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+
+    function showTestimonial(index) {
+      testimonials.forEach((t, i) => {
+        t.style.display = i === index ? 'block' : 'none';
+      });
+    }
+
+    function nextTestimonial() {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }
+
+    function prevTestimonial() {
+      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }
+
+    // Initial display
+    showTestimonial(currentTestimonial);
+  </script>
+</body>
+</html>
