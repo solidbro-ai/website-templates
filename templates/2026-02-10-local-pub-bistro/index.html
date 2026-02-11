@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLACEHOLDER PUB & BISTRO | Good Times, Great Food</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B4513;
+            --primary-dark: #6B3510;
+            --secondary: #D4A574;
+            --accent: #F5E6D3;
+            --dark: #1A1612;
+            --dark-lighter: #2D2824;
+            --cream: #FAF6F1;
+            --white: #FFFFFF;
+            --gold: #C9A962;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--cream);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 22, 18, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .book-btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .book-btn:hover {
+            background: var(--primary-dark);
+            color: var(--white) !important;
+        }
+
+        .book-btn::after {
+            display: none !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .cta-button.primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .cta-button.primary:hover {
+            background: transparent;
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--white);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .section-header p {
+            color: var(--gold);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+            margin: 1.5rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--dark-lighter);
+        }
+
+        .about-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 3px solid var(--gold);
+            border-radius: 10px;
+            z-index: -1;
+            transform: translate(15px, 15px);
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--gold);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Menu Section */
+        .menu {
+            background: var(--dark);
+        }
+
+        .menu-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .menu-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.1);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .menu-item-info p {
+            font-size: 0.85rem;
+            color: var(--gold);
+            opacity: 0.7;
+        }
+
+        .menu-item-price {
+            font-weight: 700;
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .menu-item .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            margin-left: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* Tap Section */
+        .taps {
+            background: linear-gradient(135deg, var(--dark-lighter), var(--dark));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .taps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A962' fill-opacity='0.03'%3E%3Cpath d='M40 40c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20zm-40 0c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .taps-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tap-card {
+            background: var(--dark);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .tap-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .tap-number {
+            background: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .tap-card h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .tap-card .style {
+            color: var(--gold);
+            opacity: 0.7;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tap-card .abv,
+        .tap-card .price {
+            font-size: 0.85rem;
+            color: var(--gold);
+            opacity: 0.9;
+        }
+
+        /* Events Section */
+        .events {
+            background: var(--dark-lighter);
+        }
+
+        .events-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: var(--dark);
+            padding: 2rem;
+            border-radius: 15px;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 2rem;
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            transition: var(--transition);
+        }
+
+        .event-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .event-date {
+            text-align: center;
+            background: var(--primary);
+            border-radius: 10px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: fit-content;
+        }
+
+        .event-date .day {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .event-date .month {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .event-info h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-info .meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+
+        .event-info .meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .event-info p {
+            color: var(--gold);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--dark);
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 200px);
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(139, 69, 19, 0.8), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--dark);
+        }
+
+        .contact-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-card {
+            background: var(--dark-lighter);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: var(--gold);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-card a:hover {
+            color: var(--gold);
+            opacity: 1;
+        }
+
+        /* Hours Table */
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .hours-table td {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .hours-table .day {
+            text-align: left;
+            color: var(--gold);
+            opacity: 0.8;
+        }
+
+        .hours-table .time {
+            text-align: right;
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        .hours-table .current {
+            background: rgba(139, 69, 19, 0.2);
+            border-radius: 5px;
+        }
+
+        .hours-table .current .day {
+            color: var(--gold);
+            opacity: 1;
+        }
+
+        .hours-table .current .time {
+            color: var(--gold);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: patternMove 20s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .cta-content p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button.tertiary {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--white);
+        }
+
+        .cta-button.tertiary:hover {
+            background: transparent;
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-lighter);
+            padding: 3rem 2rem 1.5rem;
+            border-top: 1px solid rgba(212, 165, 116, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--gold);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            color: var(--gold);
+            opacity: 0.6;
+            font-size: 0.85rem;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--cream);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark-lighter);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: auto;
+            }
+
+            .about-image img {
+                height: 300px;
+            }
+
+            .event-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .event-date {
+                width: fit-content;
+                margin: 0 auto;
+            }
+
+            .event-info .meta {
+                justify-content: center;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Features Badge */
+        .features-badge {
+            display: inline-flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .feature-pill {
+            background: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--gold);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">PLACEHOLDER <span>PUB</span></a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#taps">What's On Tap</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#book" class="book-btn">Book a Table</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Local <span>Pub & Bistro</span></h1>
+            <p>Great food, cold drinks, and good times at the heart of PLACEHOLDER since 1998</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="cta-button primary">View Menu</a>
+                <a href="#book" class="cta-button secondary">Book a Table</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header fade-in">
+            <h2>Welcome In</h2>
+            <div class="divider"></div>
+            <p>A place where friends become family</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-image fade-in">
+                <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=800&q=80" alt="Pub interior and atmosphere">
+            </div>
+            <div class="about-content fade-in">
+                <h3>More Than Just a Pub</h3>
+                <p>At PLACEHOLDER PUB, we've been bringing the community together for over 25 years. We're your local spot for a cheeky pint after work, a hearty Sunday roast with the family, or a night out with friends watching the big game.</p>
+                <p>Our bistro kitchen serves up classic pub favourites with a modern twist, using fresh, locally-sourced ingredients. From our famous burgers to our perfectly poured pints, everything is made with care and served with a smile.</p>
+                <div class="features-badge">
+                    <span class="feature-pill">🍺 12 Rotating Taps</span>
+                    <span class="feature-pill">📺 Live Sports</span>
+                    <span class="feature-pill">🎵 Live Music</span>
+                    <span class="feature-pill">🌿 Beer Garden</span>
+                    <span class="feature-pill">👨‍👩‍👧‍👦 Family Friendly</span>
+                    <span class="feature-pill">🐕 Dog Friendly</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="section-header fade-in">
+            <h2>Our Menu</h2>
+            <div class="divider"></div>
+            <p>From classic pub grub to bistro specials</p>
+        </div>
+        <div class="menu-grid">
+            <!-- Bites -->
+            <div class="menu-section fade-in">
+                <h3>🍟 Bites & Sides</h3>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>F loaded Wedges <span class="badge">Pop</span></h4>
+                        <p>Crispy potato wedges with melted cheese, bacon, sour cream & spring onion</p>
+                    </div>
+                    <div class="menu-item-price">$16</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Chicken Wings</h4>
+                        <p>Choose from Buffalo, BBQ, or Honey Soy (12 pieces)</p>
+                    </div>
+                    <div class="menu-item-price">$18</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Garlic Bread</h4>
+                        <p>House-made with fresh herbs and melted mozzarella</p>
+                    </div>
+                    <div class="menu-item-price">$9</div>
+                </div>
+            </div>
+
+            <!-- Mains -->
+            <div class="menu-section fade-in">
+                <h3>🍔 Pub Classics</h3>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Classic Burger <span class="badge">Popular</span></h4>
+                        <p>Angus beef, lettuce, tomato, onion, cheese, house sauce & chips</p>
+                    </div>
+                    <div class="menu-item-price">$24</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Chicken Parmi</h4>
+                        <p>Crispy schnitzel, napoli sauce, melted cheese & chips</p>
+                    </div>
+                    <div class="menu-item-price">$26</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Fish & Chips</h4>
+                        <p>Beer-battered reef fish, hand-cut chips, tartare & lemon</p>
+                    </div>
+                    <div class="menu-item-price">$28</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Pork Belly <span class="badge">Chef's</span></h4>
+                        <p>Slow-roasted with crackling, apple slaw & potato mash</p>
+                    </div>
+                    <div class="menu-item-price">$32</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tap Section -->
+    <section class="taps" id="taps">
+        <div class="section-header fade-in">
+            <h2>What's On Tap</h2>
+            <div class="divider"></div>
+            <p>Rotating selection of local and craft brews</p>
+        </div>
+        <div class="taps-grid">
+            <div class="tap-card fade-in">
+                <div class="tap-number">1</div>
+                <h4>PLACEHOLDER Pale</h4>
+                <p class="style">Pale Ale</p>
+                <p class="abv">4.5% ABV</p>
+                <p class="price">$9 / $32</p>
+            </div>
+            <div class="tap-card fade-in">
+                <div class="tap-number">2</div>
+                <h4>City Lager</h4>
+                <p class="style">Lager</p>
+                <p class="abv">4.2% ABV</p>
+                <p class="price">$8 / $28</p>
+            </div>
+            <div class="tap-card fade-in">
+                <div class="tap-number">3</div>
+                <h4>Neon IPA</h4>
+                <p class="style">IPA</p>
+                <p class="abv">6.2% ABV</p>
+                <p class="price">$11 / $38</p>
+            </div>
+            <div class="tap-card fade-in">
+                <div class="tap-number">4</div>
+                <h4>Stout House</h4>
+                <p class="style">Stout</p>
+                <p class="abv">5.8% ABV</p>
+                <p class="price">$10 / $35</p>
+            </div>
+            <div class="tap-card fade-in">
+                <div class="tap-number">5</div>
+                <h4>Summer Cider</h4>
+                <p class="style">Cider</p>
+                <p class="abv">4.8% ABV</p>
+                <p class="price">$9 / $32</p>
+            </div>
+            <div class="tap-card fade-in">
+                <div class="tap-number">6</div>
+                <h4>Zero Drop</h4>
+                <p class="style">Non-Alcoholic</p>
+                <p class="abv">0.0% ABV</p>
+                <p class="price">$8 / $28</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="section-header fade-in">
+            <h2>Upcoming Events</h2>
+            <div class="divider"></div>
+            <p>Join us for live music, trivia, and more</p>
+        </div>
+        <div class="events-grid">
+            <div class="event-card fade-in">
+                <div class="event-date">
+                    <span class="day">15</span>
+                    <span class="month">Feb</span>
+                </div>
+                <div class="event-info">
+                    <h3>Live Music: The Local Legends</h3>
+                    <div class="meta">
+                        <span>🕐 8:00 PM</span>
+                        <span>🎵 Rock & Covers</span>
+                    </div>
+                    <p>Catch the local legends playing all your favourite rock anthems and sing-along classics. No cover charge!</p>
+                </div>
+            </div>
+            <div class="event-card fade-in">
+                <div class="event-date">
+                    <span class="day">18</span>
+                    <span class="month">Feb</span>
+                </div>
+                <div class="event-info">
+                    <h3>Trivia Night</h3>
+                    <div class="meta">
+                        <span>🕐 7:30 PM</span>
+                        <span>🧠 Teams of 6</span>
+                    </div>
+                    <p>Test your knowledge at our weekly trivia! Prizes for the winners, raffles, and plenty of laughs. Free to enter!</p>
+                </div>
+            </div>
+            <div class="event-card fade-in">
+                <div class="event-date">
+                    <span class="day">22</span>
+                    <span class="month">Feb</span>
+                </div>
+                <div class="event-info">
+                    <h3>Sunday Session: Acoustic Sessions</h3>
+                    <div class="meta">
+                        <span>🕐 3:00 PM - 6:00 PM</span>
+                        <span>🎸 Acoustic</span>
+                    </div>
+                    <p>Relax with a cold drink while local singer-songwriters take the stage. Perfect Sunday arvo vibes!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="section-header fade-in">
+            <h2>The Venue</h2>
+            <div class="divider"></div>
+            <p>Get a feel for the atmosphere</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item fade-in">
+                <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" alt="Main bar area">
+                <div class="gallery-overlay">
+                    <span>The Main Bar</span>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Outdoor beer garden">
+                <div class="gallery-overlay">
+                    <span>Beer Garden</span>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="https://images.unsplash.com/photo-1564996218325-9f1d5a8e3d48?w=600&q=80" alt="Bistro dining area">
+                <div class="gallery-overlay">
+                    <span>Bistro Dining</span>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80" alt="Fresh cocktails">
+                <div class="gallery-overlay">
+                    <span>Drink Selection</span>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Sunday roast">
+                <div class="gallery-overlay">
+                    <span>Sunday Roast</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header fade-in">
+            <h2>Find Us</h2>
+            <div class="divider"></div>
+            <p>Come in for a cold one, we'd love to see you!</p>
+        </div>
+        <div class="contact-grid" id="book">
+            <div class="contact-card fade-in">
+                <div class="contact-icon">📍</div>
+                <h3>Location</h3>
+                <p>123 PLACEHOLDER Street</p>
+                <p>PLACEHOLDER, STATE 0000</p>
+                <p>Australia</p>
+            </div>
+            <div class="contact-card fade-in">
+                <div class="contact-icon">📞</div>
+                <h3>Contact</h3>
+                <p><strong>Phone:</strong> <a href="tel:+61000000000">+61 0 0000 0000</a></p>
+                <p><strong>Email:</strong> <a href="mailto:hello@placeholderpub.com.au">hello@placeholderpub.com.au</a></p>
+                <div class="social-icons">
+                    <a href="#">📘</a>
+                    <a href="#">📷</a>
+                    <a href="#">🐦</a>
+                </div>
+            </div>
+            <div class="contact-card fade-in">
+                <div class="contact-icon">🕐</div>
+                <h3>Trading Hours</h3>
+                <table class="hours-table">
+                    <tr>
+                        <td class="day">Monday - Thursday</td>
+                        <td class="time">11:00 AM – 10:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td class="day">Friday</td>
+                        <td class="time">11:00 AM – 12:00 AM</td>
+                    </tr>
+                    <tr class="current">
+                        <td class="day">Saturday</td>
+                        <td class="time">10:00 AM – 1:00 AM</td>
+                    </tr>
+                    <tr>
+                        <td class="day">Sunday</td>
+                        <td class="time">10:00 AM – 9:00 PM</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content fade-in">
+            <h2>Book Your Table</h2>
+            <p>Reservations recommended for Friday & Saturday nights, and Sunday lunch. Larger groups welcome!</p>
+            <a href="tel:+61000000000" class="cta-button tertiary">Call to Book</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>PLACEHOLDER PUB & BISTRO</h4>
+                <p>Your local since 1998. Great food, cold drinks, good times. Everyone's welcome at our place.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#about">About Us</a>
+                <a href="#menu">Our Menu</a>
+                <a href="#taps">What's On Tap</a>
+                <a href="#events">Events</a>
+            </div>
+            <div class="footer-section">
+                <h4>Functions</h4>
+                <a href="#">Corporate Events</a>
+                <a href="#">Birthday Parties</a>
+                <a href="#">Wedding Receptions</a>
+                <a href="#">Private Bookings</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Google Reviews</a>
+                <a href="#">TripAdvisor</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PLACEHOLDER PUB & BISTRO. All rights reserved. | RSA compliant | Responsible service of alcohol</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Highlight current day in hours table
+        function highlightCurrentDay() {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const today = days[new Date().getDay()];
+            const rows = document.querySelectorAll('.hours-table tr');
+            const dayNames = [['Sunday'], ['Monday', 'Tuesday', 'Thursday'], ['Friday'], ['Saturday'], ['Sunday']];
+            rows.forEach(row => {
+                const dayCell = row.querySelector('.day');
+                if (dayCell) {
+                    const dayText = dayCell.textContent.trim();
+                    if (dayText.includes(today)) {
+                        row.classList.add('current');
+                    }
+                }
+            });
+        }
+
+        highlightCurrentDay();
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(26, 22, 18, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
+            } else {
+                nav.style.background = 'rgba(26, 22, 18, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
